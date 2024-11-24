@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Manage">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" />
+    </ActionBar>
+    
+    <StackLayout class="p-6 space-y-6">
+        <Button text="Products 📦" tap="{{ onProductsTap }}" class="btn btn-primary" />
+        <Button text="Customers 👥" tap="{{ onCustomersTap }}" class="btn btn-secondary" />
+        <Button text="Providers 🏭" tap="{{ onProvidersTap }}" class="btn btn-outline" />
+    </StackLayout>
+</Page>

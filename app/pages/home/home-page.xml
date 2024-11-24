@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Tasty">
+        <ActionItem tap="{{ onManageTap }}" ios.position="right" android.position="actionBar">
+            <Label text="⚙️" fontSize="24" />
+        </ActionItem>
+        <ActionItem tap="{{ onExportTap }}" ios.position="right" android.position="actionBar">
+            <Label text="📊" fontSize="24" />
+        </ActionItem>
+    </ActionBar>
+    
+    <GridLayout rows="*, auto, auto, *" columns="*" class="p-6">
+        <StackLayout row="1" class="space-y-6">
+            <Label text="Tasty" class="text-3xl font-bold text-center mb-8" />
+            <Button text="SELL 📦" tap="{{ onSellTap }}" class="btn btn-primary" />
+            <Button text="BUY 🛍️" tap="{{ onBuyTap }}" class="btn btn-secondary" />
+            <Button text="INVENTORY 📊" tap="{{ onInventoryTap }}" class="btn btn-outline" />
+        </StackLayout>
+    </GridLayout>
+</Page>

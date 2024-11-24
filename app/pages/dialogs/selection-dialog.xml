@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" shownModally="onShownModally" class="page">
+    <ActionBar title="{{ title }}">
+        <NavigationButton text="Close" android.systemIcon="ic_menu_close_clear_cancel" tap="{{ onClose }}" />
+    </ActionBar>
+    
+    <GridLayout rows="auto, *, auto" class="p-4">
+        <!-- Search Bar -->
+        <SearchBar row="0" 
+            hint="Search..." 
+            text="{{ searchText }}" 
+            textChange="{{ onSearchTextChanged }}" 
+            class="input mb-2" 
+            style="font-size: 18"/>
+        
+        <!-- Items List -->
+        <ListView row="1" 
+            items="{{ filteredItems }}" 
+            itemTap="{{ onItemTap }}" 
+            class="list-group mb-2">
+            <ListView.itemTemplate>
+                <Label text="{{ $value }}" 
+                    class="list-item p-4" 
+                    textWrap="true" 
+                    style="font-size: 18"/>
+            </ListView.itemTemplate>
+        </ListView>
+        
+        <!-- Add New Button -->
+        <Button row="2" 
+            text="{{ addButtonText }}" 
+            tap="{{ onAddNew }}" 
+            class="btn btn-primary" 
+            visibility="{{ showAddButton ? 'visible' : 'collapsed' }}"
+            style="font-size: 20"/>
+    </GridLayout>
+</Page>

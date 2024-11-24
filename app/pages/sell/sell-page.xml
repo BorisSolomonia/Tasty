@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="New Sale">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="{{ onBackTap }}" />
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="p-6 space-y-4">
+            <Label text="Customer" class="title" />
+            <GridLayout columns="*, auto" class="mb-4">
+                <TextField col="0" text="{{ companyName }}" hint="Select customer" class="input" editable="false" />
+                <Button col="1" text="Select" tap="{{ showCustomers }}" class="btn btn-outline" />
+            </GridLayout>
+            
+            <Label text="Products" class="title" />
+            <ListView items="{{ products }}" class="list-group" height="300">
+                <ListView.itemTemplate>
+                    <StackLayout class="list-item p-4">
+                        <GridLayout rows="auto, auto" columns="*, auto">
+                            <StackLayout row="0" col="0">
+                                <Label text="{{ name }}" class="text-lg font-bold" />
+                                <Label text="{{ 'Available: ' + available }}" class="text-sm text-gray-600" />
+                            </StackLayout>
+                            <Button text="❌" row="0" col="1" tap="{{ $parent.onRemoveProduct }}" class="btn-danger" />
+                            
+                            <GridLayout row="1" col="0" columns="*, *, *" class="mt-2">
+                                <StackLayout col="0" class="mr-2">
+                                    <Label text="Quantity" class="text-sm text-gray-600" />
+                                    <TextField text="{{ quantity }}" keyboardType="number" class="input" />
+                                </StackLayout>
+                                <StackLayout col="1" class="mx-2">
+                                    <Label text="Price/Unit" class="text-sm text-gray-600" />
+                                    <TextField text="{{ price }}" keyboardType="number" class="input" />
+                                </StackLayout>
+                                <StackLayout col="2" class="ml-2">
+                                    <Label text="Total" class="text-sm text-gray-600" />
+                                    <Label text="{{ total }}" class="text-lg font-bold text-green-600" />
+                                </StackLayout>
+                            </GridLayout>
+                        </GridLayout>
+                    </StackLayout>
+                </ListView.itemTemplate>
+            </ListView>
+            
+            <Button text="+ Add Product from Inventory" tap="{{ showProductSelection }}" class="btn btn-outline" />
+            
+            <GridLayout rows="auto" columns="*, *" class="mt-4">
+                <Label text="Total Sale:" col="0" class="text-xl font-bold" />
+                <Label text="{{ totalSale }}" col="1" class="text-xl font-bold text-green-600 text-right" />
+            </GridLayout>
+            
+            <Button text="Save Sale 💾" tap="{{ onSaveSale }}" class="btn btn-primary" />
+        </StackLayout>
+    </ScrollView>
+</Page>

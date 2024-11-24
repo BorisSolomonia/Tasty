@@ -1,0 +1,14 @@
+node_modules/
+platforms/
+hooks/
+.DS_Store
+*.log
+tmp/
+temp/
+.cloud/
+.migration_backup/
+.nsbuildinfo
+.env
+dist/
+App_Resources/iOS/build/
+App_Resources/Android/src/main/res/drawable-*/

@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page {
+    background-color: #f8f9fa;
+}
+
+.btn {
+    font-size: 20;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-radius: 12;
+    height: 70;
+    margin: 8 16;
+}
+
+.btn-primary {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.btn-secondary {
+    background-color: #2196F3;
+    color: white;
+}
+
+.btn-danger {
+    background-color: #f44336;
+    color: white;
+}
+
+.btn-outline {
+    border-width: 2;
+    border-color: #666;
+}
+
+.input {
+    font-size: 20;
+    padding: 16;
+    border-width: 2;
+    border-color: #ddd;
+    border-radius: 8;
+    margin: 8;
+}
+
+.title {
+    font-size: 28;
+    font-weight: bold;
+    margin: 16 0;
+    color: #333;
+}
+
+.subtitle {
+    font-size: 24;
+    font-weight: 500;
+    margin: 12 0;
+    color: #666;
+}
+
+.list-item {
+    font-size: 20;
+    padding: 16;
+    margin: 8;
+    background-color: white;
+    border-radius: 8;
+    elevation: 2;
+    shadow-color: #000;
+    shadow-offset: 0 2;
+    shadow-opacity: 0.25;
+    shadow-radius: 3.84;
+}
+
+.label {
+    color: #333;
+    font-weight: 500;
+}
+
+.modal {
+    margin: 20;
+    background-color: white;
+    border-radius: 10;
+}

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="New Purchase" class="action-bar">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" tap="{{ onBackTap }}" />
+    </ActionBar>
+    
+    <ScrollView>
+        <StackLayout class="p-4">
+            <!-- Provider Section -->
+            <Label text="Provider" class="h1 font-bold mb-2" style="font-size: 24"/>
+            <GridLayout columns="*, auto" class="mb-4">
+                <TextField col="0" 
+                    text="{{ companyName }}" 
+                    hint="Select provider" 
+                    class="input p-4 text-lg" 
+                    editable="false" />
+                <Button col="1" 
+                    text="SELECT" 
+                    tap="{{ showProviders }}" 
+                    class="btn btn-primary ml-2" 
+                    style="font-size: 18"/>
+            </GridLayout>
+
+            <!-- Products Section -->
+            <Label text="Products" class="h1 font-bold mb-2" style="font-size: 24"/>
+            <ListView items="{{ products }}" class="list-group mb-4" height="350">
+                <ListView.itemTemplate>
+                    <GridLayout rows="auto, auto" columns="*, auto" class="p-4 bg-white rounded-lg m-1">
+                        <!-- Product Header -->
+                        <Label text="{{ name }}" row="0" col="0" class="font-bold mb-2" style="font-size: 20"/>
+                        <Button text="❌" row="0" col="1" tap="{{ $parent.onRemoveProduct }}" class="btn-danger"/>
+                        
+                        <!-- Product Details -->
+                        <GridLayout row="1" col="0" columns="*, *, *" class="mt-2">
+                            <!-- Quantity -->
+                            <StackLayout col="0" class="mr-2">
+                                <Label text="Quantity" class="text-gray-500" style="font-size: 16"/>
+                                <Label text="{{ quantity }}" class="font-bold" style="font-size: 18"/>
+                            </StackLayout>
+                            
+                            <!-- Price -->
+                            <StackLayout col="1" class="mx-2">
+                                <Label text="Price" class="text-gray-500" style="font-size: 16"/>
+                                <Label text="{{ price }}" class="font-bold" style="font-size: 18"/>
+                            </StackLayout>
+                            
+                            <!-- Total -->
+                            <StackLayout col="2" class="ml-2">
+                                <Label text="Total" class="text-gray-500" style="font-size: 16"/>
+                                <Label text="{{ total }}" class="font-bold text-green-600" style="font-size: 18"/>
+                            </StackLayout>
+                        </GridLayout>
+                    </GridLayout>
+                </ListView.itemTemplate>
+            </ListView>
+
+            <!-- Add Product Button -->
+            <Button text="+ ADD PRODUCT" 
+                tap="{{ showProductSelection }}" 
+                class="btn btn-outline mb-4" 
+                style="font-size: 20"/>
+
+            <!-- Total Purchase -->
+            <GridLayout rows="auto" columns="*, *" class="mb-4">
+                <Label text="Total Purchase:" col="0" class="font-bold" style="font-size: 22"/>
+                <Label text="{{ totalPurchase }}" col="1" class="font-bold text-green-600 text-right" style="font-size: 22"/>
+            </GridLayout>
+
+            <!-- Save Button -->
+            <Button text="SAVE PURCHASE 💾" 
+                tap="{{ onSavePurchase }}" 
+                class="btn btn-primary" 
+                style="font-size: 22"/>
+        </StackLayout>
+    </ScrollView>
+</Page>

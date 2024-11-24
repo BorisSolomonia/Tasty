@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" shownModally="onShownModally" class="page">
+    <ActionBar title="Select Provider">
+        <NavigationButton text="Close" android.systemIcon="ic_menu_close_clear_cancel" tap="{{ onClose }}" />
+        <ActionItem tap="{{ onAddNew }}" ios.position="right" android.position="actionBar">
+            <Label text="+" fontSize="32" />
+        </ActionItem>
+    </ActionBar>
+    
+    <GridLayout rows="auto, *" class="p-4">
+        <!-- Search Bar -->
+        <SearchBar row="0" 
+            hint="Search providers..." 
+            text="{{ searchText }}" 
+            textChange="{{ onSearchTextChanged }}" 
+            class="input mb-2" 
+            style="font-size: 18"/>
+        
+        <!-- Providers List -->
+        <ListView row="1" 
+            items="{{ filteredProviders }}" 
+            itemTap="{{ onProviderTap }}" 
+            class="list-group">
+            <ListView.itemTemplate>
+                <Label text="{{ name }}" 
+                    class="list-item p-4" 
+                    textWrap="true" 
+                    style="font-size: 20"/>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>

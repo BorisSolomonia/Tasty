@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Page xmlns="http://schemas.nativescript.org/tns.xsd" navigatingTo="onNavigatingTo" class="page">
+    <ActionBar title="Products">
+        <NavigationButton text="Back" android.systemIcon="ic_menu_back" />
+        <ActionItem tap="{{ onAddTap }}" ios.position="right" android.position="actionBar">
+            <Label text="+" fontSize="32" />
+        </ActionItem>
+    </ActionBar>
+    
+    <GridLayout>
+        <ListView items="{{ products }}" class="list-group">
+            <ListView.itemTemplate>
+                <StackLayout class="list-item">
+                    <Label text="{{ name }}" class="text-lg font-bold" />
+                </StackLayout>
+            </ListView.itemTemplate>
+        </ListView>
+    </GridLayout>
+</Page>
